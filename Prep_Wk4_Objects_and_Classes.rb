@@ -29,7 +29,7 @@ object_example = ExampleClass.new
 
 =begin
 Instance variables become the properties of a specific object that is created within a class.
-Every object's attributes are assigned individually. 
+Every object's attributes are assigned individually.
 A class variable is shared across all instances of a class. It must be initialized when
 the class is created.
 =end
@@ -41,7 +41,7 @@ the class is created.
 # 3. Learn the difference between state and behavior (with regard to Object Oriented
 # Programming).
 
-# The state of an object is its current status (descriptive; attributes), whereas the 
+# The state of an object is its current status (descriptive; attributes), whereas the
 # behavior of an object is what action the object is taking from its current state
 # (action; methods).
 
@@ -62,34 +62,34 @@ class Dog
 		@dog_age = age
 		@dog_breed = breed
 	end
-	
+
 	# Getter methods for the attributes
 	def print_name
 		@dog_name
 	end
-	
+
 	def print_age
 		@dog_age
 	end
-	
+
 	def print_breed
 		@dog_breed
 	end
-	
+
 	# Setter methods for the attributes
 	def set_age=(value)
 		@dog_age = value
 	end
-	
+
 	def set_breed=(value)
 		@dog_breed = value
 	end
-	
+
 	# Class methods
 	def bark
 		print "#{@dog_name} says 'WOOF'!"
 	end
-	
+
 	def walk
 		print "#{@dog_name} goes on a walk."
 	end
@@ -162,7 +162,7 @@ acts like the "setter" method. You would use this if you want to allow the users
 input the values for each object manually.
 attr_writer :name
 
-attr_accessor does both reading and writing at the same time for variables created 
+attr_accessor does both reading and writing at the same time for variables created
 within the method. You would use this when you want to allow both read/write access.
 attr_accessor :name
 =end
@@ -174,17 +174,17 @@ class Dog
         @dog_age = age
         @dog_breed = breed
     end
-    
+
     # Allows read/write access
     attr_accessor :dog_name
     attr_accessor :dog_age
     attr_accessor :dog_breed
-	
+
 	# Class methods
 	def bark
 		print "#{@dog_name} says 'WOOF'!"
 	end
-	
+
 	def walk
 		print "#{@dog_name} goes on a walk."
 	end
@@ -230,17 +230,17 @@ class Dog
         @dog_age = age
         @dog_breed = breed
     end
-    
+
     # Allows read/write access
     attr_accessor :dog_name
     attr_accessor :dog_age
     attr_accessor :dog_breed
-	
+
 	# Class methods
 	def bark
 		print "#{@dog_name} says 'WOOF'!"
 	end
-	
+
 	def walk
 		print "#{@dog_name} goes on a walk."
 	end
@@ -268,15 +268,15 @@ class Dog
         @dog_age = age
         @dog_breed = breed
     end
-    
+
     attr_accessor :dog_name
     attr_accessor :dog_age
     attr_accessor :dog_breed
-	
+
 	def bark
 		print "#{@dog_name} says 'WOOF'!"
 	end
-	
+
 	def walk
 		print "#{@dog_name} goes on a walk."
 	end
@@ -291,7 +291,7 @@ dogs.push(ender, snickers, jewel)
 
 dogs_hash = {}
 
-dogs.each {|dog| 
+dogs.each {|dog|
 	dogs_hash[dog.dog_name] = dog
 }
 puts dogs_hash
@@ -309,15 +309,15 @@ class Dog
         @dog_age = age
         @dog_breed = breed
     end
-    
+
     attr_accessor :dog_name
     attr_accessor :dog_age
     attr_accessor :dog_breed
-	
+
 	def bark
 		print "#{@dog_name} says 'WOOF'!"
 	end
-	
+
 	def walk
 		print "#{@dog_name} goes on a walk."
 	end
@@ -345,7 +345,27 @@ dogs.each {|dog|
 #####
 # Objects and Classes
 # 10. Go back to your Rock Paper Scissors game -- recreate this game (with two human
-# players) using a Player class which has name and score attributes, and which can 
+# players) using a Player class which has name and score attributes, and which can
 # generate moves. Create a Game script (this doesn't need to be a class, but it can
 # be), and have that game create 2 players, set their names and scores, and have
 # those players battle.
+
+class Player
+	def initialize(name, score)
+		@name = name
+		@score = score
+	end
+
+	attr_accessor :name
+	attr_accessor :score
+
+	def choose
+		print "Choose rock, paper, or scissors"
+		player_choice = gets.chomp
+	end
+end
+
+#####
+# Objects and Classes
+# 11. Research UML Class Diagrams. It's not important that you use these or
+# adhere to them, but they're a sometimes useful tool.
